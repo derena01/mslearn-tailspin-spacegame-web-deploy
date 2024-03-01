@@ -1,10 +1,10 @@
 trigger:
   - '*'
   
-  variables:
+variables:
     buildConfiguration: 'Release'
   
-  stages:
+stages:
   - stage: 'Build'
     displayName: 'Build the web application'
     jobs: 
@@ -84,6 +84,6 @@ trigger:
             - task: AzureWebApp@1
               displayName: 'Azure App Service Deploy: website'
               inputs:
-                azureSubscription: 'Resource Manager - Tailspin - Space Game'
+                azureSubscription: 'Devops-visolitcloud-Enocean-ServiceConnection'
                 appName: '$(WebAppName)'
                 package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
