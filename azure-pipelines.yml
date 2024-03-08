@@ -88,6 +88,7 @@
                 azureSubscription: 'Resource Manager - Tailspin - Space Game'
                 appName: '$(WebAppNameDev)'
                 package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+                appType: 'webApp'
   
   - stage: 'Test'
     displayName: 'Deploy to the test environment'
@@ -111,6 +112,7 @@
                 azureSubscription: 'Resource Manager - Tailspin - Space Game'
                 appName: '$(WebAppNameTest)'
                 package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+                appType: 'webApp'
     - job: RunUITests
       dependsOn: Deploy
       displayName: 'Run UI tests'
@@ -159,3 +161,4 @@
                 azureSubscription: 'Resource Manager - Tailspin - Space Game'
                 appName: '$(WebAppNameStaging)'
                 package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+                appType: 'webApp'
